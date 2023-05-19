@@ -1,7 +1,6 @@
 #About the project
 
-some text
+soon going to add all code coach solutions here.
 
-#Descreption of the Project
+Stay Tuned
 
-some text

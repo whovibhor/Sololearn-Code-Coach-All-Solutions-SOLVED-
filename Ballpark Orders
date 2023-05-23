@@ -1,0 +1,31 @@
+def calculate_total_cost(orders):
+    menu = {
+        'Nachos': 6.00,
+        'Pizza': 6.00,
+        'Cheeseburger': 10.00,
+        'Water': 4.00,
+        'Coke': 5.00
+    }
+
+    tax_percentage = 7
+    tax_factor = 1 + tax_percentage / 100
+
+    total_cost = 0
+
+    for item in orders:
+        if item in menu:
+            total_cost += menu[item]
+        else:
+            total_cost += menu['Coke']
+
+    total_cost *= tax_factor
+
+    return round(total_cost, 2)
+
+
+# User input
+orders = input()
+items = orders.split()
+
+total_cost = calculate_total_cost(items)
+print(total_cost)

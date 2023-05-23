@@ -1,0 +1,13 @@
+def cheer_for_team(yards):
+    if yards > 10:
+        return "High Five"
+    elif yards < 1:
+        return "shh"
+    else:
+        return "Ra!" * yards
+    
+    # User input
+yards = int(input())
+
+cheer = cheer_for_team(yards)
+print(cheer)

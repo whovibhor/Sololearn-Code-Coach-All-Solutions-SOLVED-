@@ -1,0 +1,21 @@
+import math
+
+def calculate_total_cost(num_colors):
+    base_cost = 40.00
+    color_cost = 5.00
+    tax_rate = 0.10
+
+    total_cost = base_cost + (num_colors * color_cost)
+    total_cost_with_tax = total_cost + (total_cost * tax_rate)
+
+    # Round up the total cost to the nearest whole number
+    rounded_cost = math.ceil(total_cost_with_tax)
+    return rounded_cost
+
+
+# Get the input from the user
+num_colors = int(input())
+
+# Calculate and print the total cost
+total_cost = calculate_total_cost(num_colors)
+print(total_cost)

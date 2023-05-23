@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class ArcadeTicket {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        int score = scanner.nextInt();
+        int gunCost = scanner.nextInt();
+
+        int tickets = score / 12;
+
+        if (tickets >= gunCost) {
+            System.out.println("Buy it!");
+        } else {
+            System.out.println("Try again");
+        }
+    }
+}

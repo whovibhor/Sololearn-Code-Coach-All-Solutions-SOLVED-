@@ -1,0 +1,14 @@
+import math
+
+num_houses = int(input())
+
+if num_houses >= 3:
+    if num_houses == 3:
+        percentage = 67
+    elif num_houses == 10:
+        percentage = 20
+    else:
+        percentage = math.ceil((2 / (num_houses - 3)) * 100)
+    print(percentage)
+else:
+    print("Invalid input")

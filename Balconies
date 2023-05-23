@@ -1,0 +1,26 @@
+def compare_balconies(apartment_a, apartment_b):
+    # Extract height and width for apartment A
+    height_a, width_a = map(int, apartment_a.split(','))
+
+    # Extract height and width for apartment B
+    height_b, width_b = map(int, apartment_b.split(','))
+
+    # Calculate the area of each balcony
+    area_a = height_a * width_a
+    area_b = height_b * width_b
+
+    # Compare the areas and determine the result
+    if area_a > area_b:
+        return "Apartment A"
+    elif area_b > area_a:
+        return "Apartment B"
+    else:
+        return "Both apartments have the same balcony area"
+
+# Take input from the user
+apartment_a = input()
+apartment_b = input()
+
+# Compare the balconies and output the result
+result = compare_balconies(apartment_a, apartment_b)
+print(result)

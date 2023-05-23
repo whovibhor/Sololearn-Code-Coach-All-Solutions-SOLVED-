@@ -1,0 +1,11 @@
+def distribute_popsicles(num_siblings, num_popsicles):
+    if num_popsicles % num_siblings == 0:
+        return 'give away'
+    else:
+        return 'eat them yourself'
+
+# Test the function
+num_siblings = int(input())
+num_popsicles = int(input())
+result = distribute_popsicles(num_siblings, num_popsicles)
+print(result)

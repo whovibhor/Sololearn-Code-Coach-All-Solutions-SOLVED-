@@ -1,0 +1,7 @@
+a=input()
+x = a.rstrip("B")
+y=x.lstrip("B")
+count=0
+for i in y:
+   count+=1
+print(count-2)

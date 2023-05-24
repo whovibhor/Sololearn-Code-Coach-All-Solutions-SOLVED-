@@ -1,0 +1,29 @@
+def longest_common_substring(words):
+    word_list = words.split()
+    longest_substring = ""
+
+    for i in range(len(word_list[0])):
+        for j in range(i + 1, len(word_list[0]) + 1):
+            substring = word_list[0][i:j]
+            is_common_substring = True
+
+            for word in word_list[1:]:
+                if substring not in word:
+                    is_common_substring = False
+                    break
+
+            if is_common_substring and (len(substring) > len(longest_substring) or
+                                        (len(substring) == len(longest_substring) and substring < longest_substring)):
+                longest_substring = substring
+
+    return longest_substring
+
+
+# Prompt the user for input
+input_string = input()
+
+# Find the longest common substring
+result = longest_common_substring(input_string)
+
+# Output the longest common substring
+print(result)

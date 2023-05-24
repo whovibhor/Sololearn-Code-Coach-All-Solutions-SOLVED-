@@ -1,0 +1,9 @@
+# Take input from the user
+number = int(input())
+
+# Convert the number to binary representation and count the number of 1's
+binary = bin(number)
+count_ones = binary.count('1')
+
+# Output the count of 1's
+print(count_ones)

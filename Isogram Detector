@@ -1,0 +1,9 @@
+x=input()
+count=0
+for i in x:
+ count += x.count(i)
+ 
+if count == len(x):
+  print('true')
+else:
+  print('false')

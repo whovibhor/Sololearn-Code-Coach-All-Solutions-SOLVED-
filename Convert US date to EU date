@@ -1,0 +1,34 @@
+def convert_date(date):
+    if '/' in date:
+        month, day, year = date.split('/')
+    else:
+        date_parts = date.split()
+        month = date_parts[0]
+        day = date_parts[1].strip(',')
+        year = date_parts[2]
+
+        if month.isnumeric():
+            month = int(month)
+        else:
+            month_dict = {
+                'january': 1,
+                'february': 2,
+                'march': 3,
+                'april': 4,
+                'may': 5,
+                'june': 6,
+                'july': 7,
+                'august': 8,
+                'september': 9,
+                'october': 10,
+                'november': 11,
+                'december': 12
+            }
+            month = month_dict[month.lower()]
+
+    return f'{day}/{month}/{year}'
+
+
+input_date = input()
+converted_date = convert_date(input_date)
+print(converted_date)

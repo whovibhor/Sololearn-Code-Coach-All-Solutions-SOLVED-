@@ -1,0 +1,98 @@
+import java.util.*;
+
+
+public class Program {
+
+    static ArrayList<String> stringSplit (String input) {               //splitting one String into array of Strings 
+       String [] arrOfCards = input.split(" ",-2);
+
+        ArrayList<String> listOfCards = new ArrayList<String>();       //change array into ArrayList  
+        for (String s: arrOfCards) {
+            listOfCards.add(s);                                       //adding every string representing one card into List
+        }
+        Collections.sort(listOfCards);
+        return listOfCards;                             //sorting cards in ArrayList  [10,2,3,4,5,6,7,8,9,A,J,K,Q] 
+        }
+
+
+    static int ofKind (ArrayList<String> l) {
+        int x = 0;
+        for (int i = 0; i < l.size()-1; i++) {                  //iterating through ArrayList to find one ot two pairs
+            if (l.get(i).regionMatches(0,l.get(i+1),0,1)) {
+                x++;
+                if (i<l.size()-2 && l.get(i).regionMatches(0,l.get(i+2),0,1))  // to find three or four of a kind
+                x += 10;
+                }
+            }
+        if (x == 0 &&                                               // finding straights
+            ((l.get(0).contains("2") && l.get(4).contains("6")) || 
+            (l.get(0).contains("3") && l.get(4).contains("7")) || 
+            (l.get(0).contains("4") && l.get(4).contains("8")) ||
+            (l.get(0).contains("5") && l.get(4).contains("9")) || 
+            (l.get(0).contains("10") && l.get(1).contains("6")) || 
+            (l.get(0).contains("10") && l.get(1).contains("7") && l.get(4).contains("J")) || 
+            (l.get(0).contains("10") && l.get(1).contains("8") && l.get(3).contains("J") && l.get(4).contains("Q")) || 
+            (l.get(0).contains("10") && l.get(1).contains("9") && l.get(2).contains("J") && l.get(4).contains("Q")) || 
+            (l.get(0).contains("10") && l.get(4).contains("Q"))) ) {
+            x = 50;
+            }
+        return x;
+    }
+
+    static int flush (ArrayList<String> l) {
+        int y = 0;
+        for (int i = 0; i < l.size() - 1; i++) {                
+            if (l.get(i).regionMatches(l.get(i).length()-1, l.get(i + 1), l.get(i+1).length()-1, 1)) {
+                y++;
+            }                                           // iterating to find flushes, straight flushes or royal flush
+         }
+        if (y == 4 && 
+            l.get(0).contains("10") && 
+            l.get(1).contains("A") && 
+            l.get(2).contains("J") && 
+            l.get(3).contains("K") && 
+            l.get(4).contains("Q")) {
+            y += 6;
+        }
+        return y;
+    }
+
+
+
+    public static void main(String[] args) {
+        Scanner cardsOnHand = new Scanner(System.in);
+        String cards = cardsOnHand.nextLine();                       // getting input and using stringSplit method
+        ArrayList <String> listOfCards;
+        listOfCards = stringSplit(cards);
+        if (flush(listOfCards) == 10) {                             // looking for results from methods to find what i got on hand
+            System.out.println("Royal Flush");
+        }
+        else if (flush(listOfCards) == 4 && ofKind(listOfCards) == 50)  {
+            System.out.println("Straight Flush");
+        }
+        else if (ofKind(listOfCards) == 23) {
+            System.out.println("Four of a Kind");
+        }
+        else if (ofKind(listOfCards) == 13) {
+            System.out.println("Full House");
+        }
+        else if (flush(listOfCards) == 4) {
+            System.out.println("Flush");
+        }
+        else if (ofKind(listOfCards) == 50) {
+            System.out.println("Straight");
+        }
+        else if (ofKind(listOfCards) == 12) {
+            System.out.println("Three of a Kind");
+        }
+        else if (ofKind(listOfCards) == 2) {
+            System.out.println("Two Pairs");
+        }
+        else if (ofKind(listOfCards) == 1) {
+            System.out.println("One Pair");
+        }
+        else {
+            System.out.println("High Card");
+        }
+    }
+}

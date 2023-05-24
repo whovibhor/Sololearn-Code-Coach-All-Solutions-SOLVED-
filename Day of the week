@@ -1,0 +1,23 @@
+import datetime
+
+def get_day_of_week(date_string):
+    try:
+        date = datetime.datetime.strptime(date_string, '%m/%d/%Y')
+    except ValueError:
+        try:
+            date = datetime.datetime.strptime(date_string, '%B %d, %Y')
+        except ValueError:
+            return "Invalid date format"
+
+    days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    day_of_week = days_of_week[date.weekday()]
+    return day_of_week
+
+# Take input from the user
+date_input = input()
+
+# Get the day of the week
+output = get_day_of_week(date_input)
+
+# Print the result
+print(output)

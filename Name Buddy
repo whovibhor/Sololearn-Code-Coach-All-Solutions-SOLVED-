@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace SoloLearn
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string groupNames = Console.ReadLine();
+            string yourName = Console.ReadLine();
+            bool nameMatch = false;
+            
+            //Check each character in string groupNames
+            foreach (char c in groupNames) {
+                //strings are series of chars, so you can index them and compare your first letter.
+                if (c == yourName[0]) nameMatch = true;
+            }
+            
+            if (nameMatch) Console.WriteLine("Compare notes");
+            else Console.WriteLine("No such luck");
+        }
+    }
+}

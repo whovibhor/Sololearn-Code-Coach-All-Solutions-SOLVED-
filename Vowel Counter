@@ -1,0 +1,9 @@
+x = list(input())
+cont_a = x.count("a")
+cont_e = x.count("e")
+cont_i = x.count("i")
+cont_o = x.count("o")
+cont_u = x.count("u")
+cont_I = x.count("I")
+total = cont_a + cont_e + cont_i + cont_o + cont_u + cont_I
+print(total)

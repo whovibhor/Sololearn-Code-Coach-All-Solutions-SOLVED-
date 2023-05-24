@@ -1,0 +1,2 @@
+n = input() 
+print( "".join([i*int(x) for i,x in zip(n[0::2],n[1::2])]))

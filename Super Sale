@@ -1,0 +1,24 @@
+import math
+
+itemsList = [float(s) for s in input().split(",")]
+
+# all except the most expensive item
+# get 30% discount
+# and the 7% tax as saving
+sumForSale = 0.0
+
+DISCOUNT = 0.3
+TAX = 1.07
+
+# check if there is more than 1 item to buy
+# find and save the most expensive item
+# and remove it from the list of items
+if(len(itemsList) > 1):
+    mostExpensiveItem = max(itemsList)
+    itemsList.remove(mostExpensiveItem)
+    for item in itemsList:
+        sumForSale += float(item)
+
+# round to the upper value, 
+# giving 'decimals' as a tip
+print(math.floor(sumForSale * DISCOUNT * TAX))

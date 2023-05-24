@@ -1,0 +1,14 @@
+from datetime import datetime
+
+def calculate_days(date1, date2):
+    format_str = "%B %d, %Y"
+    dt1 = datetime.strptime(date1, format_str)
+    dt2 = datetime.strptime(date2, format_str)
+    diff = dt2 - dt1
+    return diff.days
+
+
+date1 = input()
+date2 = input()
+days = calculate_days(date1, date2)
+print(days)

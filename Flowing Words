@@ -1,0 +1,15 @@
+i = input().split()
+
+temp = i[0][-1::]
+c = 1
+
+for x in range(1,len(i)):
+    if i[x][0:1:] == temp:
+        temp = i[x][-1::]
+        c += 1
+    else:
+        print("false")
+        break
+
+if c == len(i):
+    print("true")

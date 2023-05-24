@@ -1,0 +1,17 @@
+def calculate_sum_of_multiples(number):
+    total_sum = 0
+
+    for i in range(number):
+        if i % 3 == 0 or i % 5 == 0:
+            total_sum += i
+
+    return total_sum
+
+# Take input from the user
+number = int(input())
+
+# Calculate the sum of multiples of 3 and 5 below the given number
+sum_of_multiples = calculate_sum_of_multiples(number)
+
+# Output the result
+print(sum_of_multiples)

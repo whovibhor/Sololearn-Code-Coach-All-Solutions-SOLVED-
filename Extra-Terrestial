@@ -1,0 +1,8 @@
+# Take input from the user
+string = input()
+
+# Reverse the string using slicing
+reversed_string = string[::-1]
+
+# Output the reversed string
+print(reversed_string)

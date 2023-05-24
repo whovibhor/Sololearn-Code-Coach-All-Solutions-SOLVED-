@@ -1,0 +1,22 @@
+def find_missing_numbers(numbers):
+    # Find the minimum and maximum numbers in the sequence
+    min_num = numbers[0]
+    max_num = numbers[-1]
+
+    # Create a set of all the numbers in the sequence
+    all_numbers = set(numbers)
+
+    # Find the missing numbers by comparing the set of all numbers
+    # with a set of numbers from the minimum to the maximum
+    missing_numbers = [num for num in range(min_num, max_num) if num not in all_numbers]
+
+    # Return the missing numbers as a space-separated string
+    return ' '.join(str(num) for num in missing_numbers)
+
+# Get the input list from the user
+n = int(input())
+numbers = [int(input()) for _ in range(n)]
+
+# Find and print the missing numbers
+missing_nums = find_missing_numbers(numbers)
+print(missing_nums)

@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Divisible 
+{
+  public static void main(String[ ] args)
+  {
+    Scanner input = new Scanner(System.in);
+    int i = input.nextInt();
+    input.nextLine();
+    String n = input.nextLine();
+    int j = 0;
+    String[] s = n.split(" ");
+
+    for (String x: s)
+    {
+      if (i % Integer.parseInt(x) == 0)
+      {
+        j++;
+      }
+    }
+    
+    if (j == s.length)
+    {
+      System.out.print("divisible by all");
+    }
+    else
+    {
+      System.out.print("not divisible by all");
+    }
+
+  }
+}

@@ -1,0 +1,66 @@
+#include <iostream>
+
+int main() {
+    std::string input;
+    
+    //get input
+    std::getline(std::cin, input);
+
+    int orig_len = input.length();
+    
+    //single char strings
+    if(orig_len == 1){
+        std::cout << (char)(std::tolower(input[0])) << std::endl;
+        return 0;
+    }
+    
+    //init Pos-Array
+    int count = 0;
+    int pos[orig_len];
+    
+    for(int i = 0; i < orig_len; i++){
+        pos[i] = 0;
+    }
+    //fill Pos-Array
+    for(int i = 0; i < orig_len; i++){
+        if(input[i] >= 'A' && input[i] <= 'Z' && i > 0){
+            pos[count] = i;
+            count++;
+        }
+        if(input[i] >= 'A' && input[i] <= 'Z' && i == 0){
+            input[i] +=32;
+        }
+    }
+    
+    //check for empty Pos-Array
+    if(pos[0] == 0){
+        std::cout << input << std::endl;
+        return 0;
+    }
+    
+    //prepare new string
+    
+    int new_len = orig_len + count;
+    
+    char new_text[new_len];
+    int p = 0;
+    
+    //fill new string
+    for(int i = 0; i < orig_len; i++){
+        if(pos[p] == i){
+            new_text[i+p] = '_';
+            p++;
+            new_text[i+p] = input[i] + 32;
+        }
+        else{
+            new_text[i+p] = input[i];
+        }
+    }
+    
+    //output string
+    for(int i = 0; i < new_len; i++){
+        std::cout << new_text[i];
+    }
+    
+    return 0;
+}
